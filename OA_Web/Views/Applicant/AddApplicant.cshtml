@@ -1,0 +1,66 @@
+﻿@model OA_Service.ViewModels.ApplicantViewModel
+
+@{
+    ViewData["Title"] = "Add Application";
+}
+
+<h1>Appliction Form</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddApplicant">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FamilyName" class="control-label"></label>
+                <input asp-for="FamilyName" class="form-control" />
+                <span asp-validation-for="FamilyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryOfOrigin" class="control-label"></label>
+                <select asp-for="CountryOfOrigin" asp-items="(IEnumerable<SelectListItem>)ViewBag.countries" class="form-control" >
+                    <option value="-1" selected disabled>Please Select Your Country</option>
+                </select>
+                <span asp-validation-for="CountryOfOrigin" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="CountryOfOrigin" class="control-label"></label>
+                <input asp-for="CountryOfOrigin" class="form-control" />
+                <span asp-validation-for="CountryOfOrigin" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="EMailAdress" class="control-label"></label>
+                <input asp-for="EMailAdress" class="form-control" />
+                <span asp-validation-for="EMailAdress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Hired" class="control-label"></label>
+                <input asp-for="Hired" class="form-control" />
+                <span asp-validation-for="Hired" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Applay Now" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

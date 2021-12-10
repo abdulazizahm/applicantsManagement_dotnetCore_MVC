@@ -1,0 +1,77 @@
+﻿@model OA_Service.ViewModels.ApplicantViewModel
+
+@{
+    ViewData["Title"] = "Application Details";
+}
+
+<h1>Applicant Details for @Html.DisplayFor(model => model.Name)</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Application Number
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FamilyName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FamilyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CountryOfOrigin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CountryOfOrigin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EMailAdress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EMailAdress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hired)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hired)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (Model.Hired != null)
+    {
+        <div class="form-group">
+            @Html.ActionLink("UnHired", "UnHired", new { id = Model.ID }, new { @class = "btn btn-danger w-100 mr-4" })
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            @Html.ActionLink("Hired", "Hired", new { id = Model.ID }, new { @class = "btn btn-success w-100 mr-4" })
+        </div>
+    }
+    @Html.ActionLink("Delete", "DeleteApplicant", new { id = Model.ID }, new { @class = "btn btn-danger w-100 mt2" })
+    <a asp-action="Index">Back to List</a>
+</div>
